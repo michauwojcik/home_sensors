@@ -1,0 +1,5 @@
+# handle db where signals are saved
+influxdb-client==1.49.0
+
+# read signals from BME280 sensor
+RPi.bme280==0.2.4
