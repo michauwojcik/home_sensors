@@ -1,11 +1,11 @@
 #!/bin/bash
 # load env variables
-source env.sh
-PROJECT_DIR=$REPO_DIR_PATH
+PROJECT_DIR="/home/michau/Repos/home_sensors"
 
 cd "$PROJECT_DIR" || exit 1
 
 # Activate the virtual environment
+source env.sh
 source .venv/bin/activate
 
 # Run the Python script and write output to log file
