@@ -1,2 +1,7 @@
+# Ignore environment configuration files
 env.sh
 secrets.py
+
+# Ignore virtual environment directories
+.venv/
+venv/
