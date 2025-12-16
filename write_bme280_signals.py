@@ -10,28 +10,28 @@ from datetime import datetime
 token = os.environ.get("INFLUXDB_TOKEN")
 org = os.environ.get("INFLUXDB_ORG")
 url = os.environ.get("INFLUXDB_URL")
+bucket = os.environ.get("INFLUXDB_BUCKET")
 
 client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
-bucket="temp_humidity_pressure"
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
 # reading signals from BME280 sensor
-address = 0x76
+ADDRESS = 0x76
 bus = smbus2.SMBus(1)
-calibration_params = bme280.load_calibration_params(bus, address)
+calibration_params = bme280.load_calibration_params(bus, ADDRESS)
 
-data = bme280.sample(bus, address, calibration_params)
+data = bme280.sample(bus, ADDRESS, calibration_params)
 t = round(data.temperature, 2)
 rh = round(data.humidity, 2)
 p = round(data.pressure, 2)
 
 point = (
     Point("bme280_signals")
-    .tag("home", "iot")
+    .tag("location", "office")
     .field("temperature", t)
     .field("humidity", rh)
     .field("pressure", p)
 )
 
-write_api.write(bucket=bucket, org="home", record=point)
+write_api.write(bucket=bucket, org=org, record=point)
 print(f"[{datetime.now().isoformat()}] temp: {t}°C, humidity: {rh}%, pressure: {p}hPa")
