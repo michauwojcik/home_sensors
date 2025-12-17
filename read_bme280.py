@@ -1,9 +1,10 @@
 # reading signals from BME280 sensor
 
-import smbus2
-import bme280
 import time
 from datetime import datetime
+
+import bme280
+import smbus2
 
 address = 0x76
 

@@ -3,3 +3,10 @@ influxdb-client==1.49.0
 
 # read signals from BME280 sensor
 RPi.bme280==0.2.4
+
+# Data models
+pydantic==2.12.5
+
+# Rest API
+fastapi==0.124.4
+

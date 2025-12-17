@@ -1,5 +1,6 @@
 from helpers import get_and_set_time
 
+
 def get_sensor_data_line_protocol(bme_sensor):
     """Reads BME280 data and formats it into InfluxDB Line Protocol."""
 

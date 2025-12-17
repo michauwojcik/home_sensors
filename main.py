@@ -1,9 +1,11 @@
 """Run reading signals and writing them to InfluxDB on RPi Pico."""
 
-import bme280
-from helpers import connect_to_wifi, write_to_influxdb, flash_led
-from machine import Pin, I2C
 from time import sleep
+
+import bme280
+from machine import I2C, Pin
+
+from helpers import connect_to_wifi, flash_led, write_to_influxdb
 from read_bme280_mpy import get_sensor_data_line_protocol
 
 if not connect_to_wifi():

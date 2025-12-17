@@ -1,10 +1,12 @@
-import influxdb_client, os, time
-from influxdb_client import InfluxDBClient, Point, WritePrecision
-from influxdb_client.client.write_api import SYNCHRONOUS
-import smbus2
-import bme280
+import os
 import time
 from datetime import datetime
+
+import bme280
+import influxdb_client
+import smbus2
+from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client.client.write_api import SYNCHRONOUS
 
 # Influx config
 token = os.environ.get("INFLUXDB_TOKEN")
