@@ -33,5 +33,5 @@ point = (
     .field("pressure", p)
 )
 
+print(f"[{datetime.now().isoformat(timespec='milliseconds')}] temp: {t}°C, humidity: {rh}%, pressure: {p}hPa")
 write_api.write(bucket=bucket, org=org, record=point)
-print(f"[{datetime.now().isoformat()}] temp: {t}°C, humidity: {rh}%, pressure: {p}hPa")
